@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 4th Quarter Formative Assessment 5: Part 2 </title>
+</head>
+<body>
+    <input type="text" id="contactName" placeholder="Enter name">
+    <button onclick="addContact()">Add</button>
+    <button onclick="removeContact()">Remove</button></br>
+    <p id="contactlist"></p>
+
+    <script>
+        var contacts = [];
+
+        function print() {
+            var output = "";
+            for (var x = 0; x < contacts.length; x++) {
+                output += contacts[x] + " ";
+            } document.getElementById("contactlist").innerHTML = output;
+        }
+
+        function addContact() {
+            var name = document.getElementById("contactName").value;
+            if (name != "") {
+                contacts.push(name);
+                if (contacts.length > 7) {
+                    contacts.shift();
+                } print();
+                document.getElementById("contactName").value = "";
+            }
+        }
+        
+        function removeContact() {
+            if (contacts.length > 0) {
+                contacts.pop();
+                print();
+            }
+        }
+    </script>
+</body>
+</html>
